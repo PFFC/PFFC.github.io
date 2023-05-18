@@ -76,9 +76,9 @@
                         cell.innerHTML = "$" + perMemberCost.toFixed(2);
                         if(perMemberCost < 300)
                             cell.style.backgroundColor = "LightGreen";
-                        else if (perMemberCost >=300 && <= 360)
+                        else if (perMemberCost >= 300 && perMemberCost <= 360)
                             cell.style.backgroundColor = "LightSkyBlue";
-                        else if (perMemberCost > 360 && < 390)
+                        else if (perMemberCost > 360 && perMemberCost < 390)
                             cell.style.backgroundColor = "Khaki";
                         else if (perMemberCost >= 390)
                             cell.style.backgroundColor = "LightCoral";
@@ -87,7 +87,7 @@
             }
         </script>
     </head>
-    <body class="wrap">
+    <body class="wrap" onload="RecalculateGrid()">
       <h1>Second Airplane Calculations</h1>
       <h2>Settings</h2>
       <table>
