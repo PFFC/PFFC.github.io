@@ -48,6 +48,32 @@
                 height: auto;
             }
         </style>
+        <script type="text/javascript">
+            function RecalculateGrid(){
+                var rate = document.getElementById("Rate").value;
+                var years = document.getElementById("Years").value;
+                var costs = document.getElementById("Costs").value;
+                
+                var monthlyRate = (rate/100)/12;
+                var months = years * 12;
+                var monthlyFactor = (monthlyRate + 1) ** months;
+                var paymentFactor = (monthlyRate * monthlyFactor)/(monthlyFactor - 1)
+                
+                for (var w = 1; w <= 10; w++)
+                {
+                    for(var p = 100; p <= 400; p += 50)
+                    {
+                        let downPayment = w * 15000;
+                        let loanAmount = (p * 1000) - downPayment;
+                        let loanPayment = loanAmount * paymentFactor;
+                        let totalPayment = 3300 + loanPayment + costs;
+                        let perMemberCost = totalPayment / (10 + w);
+                        
+                        document.getElementById(`w${w}p${p}`).innerHTML = perMemberCost.toFixed(2);
+                    }
+                }
+            }
+        </script>
     </head>
     <body class="wrap">
       <h1>Second Airplane Calculations</h1>
@@ -55,9 +81,9 @@
       <table>
         <tr><th>Rate %</th><th>Years</th><th>Other Monthly Costs</th></tr>
         <tr>
-          <td><input type="number" id="Rate" name="Rate" value="7" onchange></td>
-          <td><input type="number" id="Years" name="Years" value="15"></td>
-          <td><input type="number" id="Costs" name="Costs" value="1500"></td>
+          <td><input type="number" id="Rate" name="Rate" value="7" onchange="RecalculateGrid()"></td>
+          <td><input type="number" id="Years" name="Years" value="15" onchange="RecalculateGrid()"></td>
+          <td><input type="number" id="Costs" name="Costs" value="1500" onchange="RecalculateGrid()"></td>
         </tr>
       </table>
         <h2>Cost/Month/Member</h2>
