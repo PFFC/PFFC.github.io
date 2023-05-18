@@ -71,7 +71,7 @@
                         let loanPayment = loanAmount * paymentFactor;
                         let totalPayment = 3300 + loanPayment + costs;
                         let perMemberCost = totalPayment / (10 + w);
-                        
+                        debugger;
                         let cell = document.getElementById(`w${w}p${p}`);
                         cell.innerHTML = "$" + perMemberCost.toFixed(2);
                         if(perMemberCost < 300)
