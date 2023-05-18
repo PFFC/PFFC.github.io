@@ -76,7 +76,7 @@
 
                         let cell = document.getElementById(`w${w}p${p}`);
                         cell.innerHTML = "$" + perMemberCost.toFixed(2);
-                        cell.style.border = loanAmount == 0 ? "medium" : "none";
+                        cell.style.border = loanAmount == 0 ? "thin solid black" : "none";
                         
                         if(perMemberCost < 300)
                             cell.style.backgroundColor = "LightGreen";
