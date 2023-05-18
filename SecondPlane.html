@@ -93,13 +93,26 @@
     </head>
     <body class="wrap" onload="RecalculateGrid()">
       <h1>Second Airplane Calculations</h1>
+        <p>This calculator assumes a fixed, single loan, with only new member buy-ins ($15,000 each) counted toward a down payment on the aircraft price.</p>
       <h2>Settings</h2>
+        <p>Select the rate and term of the loan. The &quot;Other Monthly Costs&quot; is intended to cover other fixed costs like the hanger, insurance, etc. The $1850 includes amounts from 17E:
+        <ul>
+            <li>Hanger: $330 ($3,960 annually)</li>
+            <li>Insurance: $766 ($9,200 annually)</li>
+            <li>Annual: $333 ($4,000 annually)</li>
+            <li>GPS: $83 ($1,000 annually)</li>
+            <li>Allowance: $250 ($3,000 annually)</li>
+            <li>Life Insurance for Loan Guarantor: $65 ($790 annually)</li>
+            <li>Total: $1,827 (Rounded to $1,850 to add a little extra)</li>
+        </ul>
+        However, feel free to modify that amount to include different items.
+        </p>
       <table>
         <tr><th>Rate %</th><th>Years</th><th>Other Monthly Costs</th></tr>
         <tr>
           <td><input type="number" id="Rate" name="Rate" value="7" onchange="RecalculateGrid()"></td>
           <td><input type="number" id="Years" name="Years" value="15" onchange="RecalculateGrid()"></td>
-          <td><input type="number" id="Costs" name="Costs" value="1500" onchange="RecalculateGrid()"></td>
+          <td><input type="number" id="Costs" name="Costs" value="1850" onchange="RecalculateGrid()"></td>
         </tr>
       </table>
         <h2>Cost/Month/Member</h2>
@@ -198,5 +211,13 @@
                 <td id="w10p400"/>
             </tr>
         </table>
+    <table>
+        <th colspan="5">Key</th>
+        <td style="border: thin solid black;">No loan required.</td>
+        <td style="background-color: lightgreen;">&gt; $30 cheaper</td>
+        <td style="background-color: lightskyblue;">&lt; $30 different</td>
+        <td style="background-color: khaki;">&gt; $30 more</td>
+        <td style="background-color: lightcoral;">&gt; $30 more</td>
+    </table>
     </body>
 </html>
