@@ -68,16 +68,16 @@
                     {
                         let downPayment = w * 15000;
                         let loanAmount = (p * 1000) - downPayment;
-                        if(loanAmount < 0)
+                        if (loanAmount < 0)
                             loanAmount = 0;
                         let loanPayment = loanAmount * paymentFactor;
                         let totalPayment = 3300 + loanPayment + costs;
                         let perMemberCost = totalPayment / (10 + w);
-                        debugger;
+
                         let cell = document.getElementById(`w${w}p${p}`);
-                        cell.innerHTML = "Down Payment: " + downPayment.toFixed(2)
-                        + "<br/>Loan Amount: " + loanAmount.toFixed(2)
-                        +"<br/>Per Member: $" + perMemberCost.toFixed(2);
+                        cell.innerHTML = "$" + perMemberCost.toFixed(2);
+                        cell.style.border = loanAmount == 0 ? "medium" : "none";
+                        
                         if(perMemberCost < 300)
                             cell.style.backgroundColor = "LightGreen";
                         else if (perMemberCost >= 300 && perMemberCost <= 360)
