@@ -44,7 +44,7 @@
                 text-align: center;
             }
             td {
-                padding: 2px, 5px;
+                padding: 3px, 6px;
             }
             img {
                 width: 100%;
@@ -53,9 +53,9 @@
         </style>
         <script type="text/javascript">
             function RecalculateGrid(){
-                var rate = document.getElementById("Rate").value;
-                var years = document.getElementById("Years").value;
-                var costs = document.getElementById("Costs").value;
+                var rate = Number(document.getElementById("Rate").value);
+                var years = Number(document.getElementById("Years").value);
+                var costs = Number(document.getElementById("Costs").value);
                 
                 var monthlyRate = (rate/100)/12;
                 var months = years * 12;
