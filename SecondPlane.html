@@ -43,6 +43,9 @@
                 display: block;
                 text-align: center;
             }
+            td {
+                padding: 2px, 5px;
+            }
             img {
                 width: 100%;
                 height: auto;
@@ -69,7 +72,16 @@
                         let totalPayment = 3300 + loanPayment + costs;
                         let perMemberCost = totalPayment / (10 + w);
                         
-                        document.getElementById(`w${w}p${p}`).innerHTML = perMemberCost.toFixed(2);
+                        let cell = document.getElementById(`w${w}p${p}`);
+                        cell.innerHTML = "$" + perMemberCost.toFixed(2);
+                        if(perMemberCost < 300)
+                            cell.style.backgroundColor = "LightGreen";
+                        else if (perMemberCost >=300 && <= 360)
+                            cell.style.backgroundColor = "LightSkyBlue";
+                        else if (perMemberCost > 360 && < 390)
+                            cell.style.backgroundColor = "Khaki";
+                        else if (perMemberCost >= 390)
+                            cell.style.backgroundColor = "LightCoral";
                     }
                 }
             }
